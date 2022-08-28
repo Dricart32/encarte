@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { SearchIcon } from '@heroicons/react/solid'
+import OfertasProdutos from '../OfertasProdutos'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -52,9 +53,8 @@ export default function MainSection() {
               </div>
             </div>
         </div>
-            <div className="m-2 border-4 border-dashed border-red-200 rounded-lg h-96">               
-
-
+            <div className="m-2 border-4 border-dashed border-red-200 rounded-lg h-auto ">
+              <OfertasProdutos />
             </div>
         </>
   )
