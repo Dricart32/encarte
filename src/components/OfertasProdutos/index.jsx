@@ -11,7 +11,8 @@ export default function OfertasProdutos() {
 
   const [oferta, setOferta] = useState([]);
   const [lat, setLat] = useState("")
-  const [lng, setLng] = useState("")      
+  const [lng, setLng] = useState("")    
+  const [searchProd, setSearchProd] = useState("")  
   
   useEffect(() => {
      navigator.geolocation.getCurrentPosition((position) => {
@@ -19,14 +20,14 @@ export default function OfertasProdutos() {
       setLng(position.coords.longitude);
     });
 
-    axios.get(`${API_endpoint}produto=${oferta_produto_busca}&lat=${lat}&lng=${lng}&distance=1000&max=15`)
+    axios.get(`${API_endpoint}produto=${searchProd}&lat=${lat}&lng=${lng}&distance=1000&max=15`)
     .then((response) => {
        setOferta(response.data.data)
     })
     .catch(function (error) {
       console.log(error);
     });
-  },[lat, lng]);
+  },[lat, lng, searchProd]);
   
     return(
     
@@ -47,6 +48,8 @@ export default function OfertasProdutos() {
                     placeholder="Pesquise pelo nome do produto"
                     type="search"
                     name="search"
+                    value={searchProd}
+                    onChange={e => setSearchProd(e.target.value)}
                   />
                 </div>
               </div>

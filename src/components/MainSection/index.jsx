@@ -4,7 +4,7 @@ import OfertasProdutos from '../OfertasProdutos'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-// começar a utilizar a api
+
 export default function MainSection() {
   const tabs = [
     { name: 'Pesquisar Ofertas', href: 'ofertas', current: true },

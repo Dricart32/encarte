@@ -39,7 +39,7 @@ export default function NavBar() {
                             {navigation.map((item) => 
                               <Link href={item.href}>
                                 <a                         
-                                key={navigation.nome}        
+                                key={item.nome}        
                                 name={item.name}
                                 className={[item.current ? 'text-white bg-red-900 px-3 py-2 rounded-md text-sm font-medium' : 'text-red-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium']}
                                 aria-current={item.current ? 'page' : undefined}
@@ -74,7 +74,7 @@ export default function NavBar() {
                     {navigation.map((item) => 
                     
                     <Disclosure.Button 
-                        key={navigation.nome}
+                        key={item.nome}
                         as="a"
                         href={item.href} 
                         className={item.current ? 'text-white bg-red-900 block px-3 py-2 rounded-md text-base font-medium' :'text-red-300 hover:bg-red-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'}
