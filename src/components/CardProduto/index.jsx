@@ -5,11 +5,11 @@
   
   export default function CardProduto({oferta}) {
     return (
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {oferta.map((produto) => (
           <div
             key={produto.oferta_id}
-            className="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+            className="relative rounded-lg border border-gray-300 bg-white py-5 mx-1 px-6 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500"
           >
             <div className="flex-shrink-0">
               <img className="h-20 w-20" src={produto.oferta_imagem} alt="" />
@@ -18,8 +18,8 @@
               <a href="#" className="focus:outline-none">
                 <span className="absolute inset-0" aria-hidden="true" />
                 <p className="text-sm font-medium text-gray-900">{produto.oferta_produto}</p>
-                <p className="text-sm font-medium text-gray-900">{`R$${produto.oferta_preco}`}</p>
-                <p className="text-sm text-gray-500 truncate">{produto.loja_nome}</p>
+                <p className="text-sm font-bold text-green-900">{`R$${produto.oferta_preco}`}</p>
+                <p className="text-sm text-gray-500 truncate">{`${produto.loja_marca_nome} | ${produto.loja_bairro}`}</p>
               </a>
             </div>
           </div>

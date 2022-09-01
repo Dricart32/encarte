@@ -1,7 +1,7 @@
-import MainSection from "../components/MainSection";
+import Tabs from "../components/Tabs";
 
 export default function Home() {
   return (
-      <MainSection></MainSection>
+      <Tabs />
       )
     }

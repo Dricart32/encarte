@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import CardProduto from '../CardProduto';   
+import CardEncarte from '../CardEncarte';   
 import { SearchIcon } from '@heroicons/react/solid';
 
 var axios = require('axios');
 const API_endpoint = `http://api.poupatize.com.br/api/v1/ofertas/pesquisar?`;
 
-export default function OfertasProdutos() {
+export default function OfertasEncartes() {
 
   const [oferta, setOferta] = useState([]);
   const [lat, setLat] = useState("")
@@ -51,7 +51,7 @@ export default function OfertasProdutos() {
                 </div>
               </div>
             </div>
-      <CardProduto oferta={oferta} />
+      <CardEncarte oferta={oferta} />
     </div>
     )
 }
