@@ -26,12 +26,12 @@ export default function OfertasProdutos() {
       console.log(error);
     });
   },[lat, lng, searchProd]);
-  
+
     return(
     
     <div>
-      <div className="flex-1 px-2 m-2 flex justify-center lg:ml-6 lg:justify-start rounded-md  border-2 border-red-400">
-              <div className="max-w-lg w-full lg:max-w-xs">
+      <div className="flex-1 px-2 m-2 mb-3 flex justify-center lg:ml-6 lg:justify-start rounded-md ">
+              <div className="w-full px-8">
                 <label htmlFor="search" className="sr-only">
                   Search
                 </label>
@@ -40,8 +40,8 @@ export default function OfertasProdutos() {
                     <SearchIcon className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <input
-                    id="search"
-                    className="block w-full bg-white py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-600 focus:ring-white focus:border-white sm:text-sm"
+                    id="searchProduto"
+                    className="block w-full bg-white py-3 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-600 focus:ring-white focus:border-white sm:text-sm"
                     placeholder="Pesquise pelo nome do produto"
                     type="search"
                     name="search"
