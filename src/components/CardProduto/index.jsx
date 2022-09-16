@@ -20,15 +20,14 @@ export default function CardProduto({ oferta }) {
         <div
           onClick={() => setSelectedProduct(produto)}
           key={produto.oferta_id}
-          className="relative rounded-lg border border-gray-300 bg-white py-5 mx-1 px-6 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500"
+          className="relative rounded-lg border border-gray-300 bg-white hover:bg-red-900 py-5 mx-1 px-6 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500 "
         >
           <div className="flex-shrink-0">
             <img className="h-20 w-20" src={produto.oferta_imagem} alt="" />
           </div>
           <div className="flex-1 min-w-0">
             <a className="focus:outline-none">
-              <span className="absolute inset-0" aria-hidden="true" />
-              <p className="text-sm font-medium text-gray-900">
+              <p className="text-sm font-medium  hover:text-white">
                 {produto.oferta_produto}
               </p>
               <p className="text-sm font-bold text-green-900">{`R$${produto.oferta_preco}`}</p>
