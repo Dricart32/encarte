@@ -10,10 +10,10 @@ export default function OfertasProdutos() {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [searchProd, setSearchProd] = useState("");
-  const [maxProd, setMaxProd] = useState(15);
+  const [maxProd, setMaxProd] = useState(15); 
 
   const handleMoreCards = () => {
-    setMaxProd(maxProd + 3);
+    setMaxProd(maxProd + 6);
   };
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -21,7 +21,8 @@ export default function OfertasProdutos() {
       setLng(position.coords.longitude);
     });
 
-    axios.get(
+    axios
+      .get(
         `${API_endpoint}produto=${searchProd}&lat=${lat}&lng=${lng}&distance=1000&max=${maxProd}`
       )
       .then((response) => {
@@ -62,7 +63,7 @@ export default function OfertasProdutos() {
         <button
           type="button"
           onClick={handleMoreCards}
-          className="inline-flex items-center rounded-full border border-black bg-white p-3 text-red-900 hover:text-white hover:bg-red-900 shadow-s focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="inline-flex items-center rounded-full border border-black bg-white p-3 text-red-900 hover:text-white hover:bg-red-900 shadow-s"
         >
           Carregar mais ofertas
         </button>

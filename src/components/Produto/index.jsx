@@ -2,6 +2,7 @@ export default function selectedProduct({
   selectedProduct,
   setSelectedProduct,
 }) {
+  console.log(selectedProduct)
   return (
     <div clasName="flex items-center justify-center">
       <div
@@ -14,20 +15,25 @@ export default function selectedProduct({
           <p className="items-center justify-center ">Voltar</p>
         </div>
         <div className="flex rounded-lg items-center pb-4 justify-center">
-          <div className="flex flex-col bg-red-500 rounded-lg border-2 border-black border-dotted py-4 px-8 my-3 mx-2">
+          <div className="flex flex-col items-center bg-red-500 rounded-lg border-2 border-black border-dotted max-w-md py-4 px-0 my-3 mx-2">
             <img
-              className="h-60 w-60 border p-1 bg-white border-black rounded-3xl shadow-lg"
+              className="h-60 w-60 border p-1 mx-4 bg-white border-black rounded-3xl shadow-lg"
               src={selectedProduct.oferta_imagem}
               alt=""
             />
-
+            <br />
             <div className="min-w-500 flex flex-col items-center justify-center ">
-              <div className="focus:outline-none">
-                <p className="text-sm font-medium text-black bg-white p-1 mt-2">
+              <div className="w-full px-4 bg-white">
+                <p className="text-sm font-medium text-black  p-1 mt-2">
                   {selectedProduct.oferta_produto}
                 </p>
-                <p className="text-sm font-bold p-1 bg-white text-green-900">{`R$${selectedProduct.oferta_preco}`}</p>
-                <p className="text-sm bg-white p-1 text-gray-500 truncate">{`${selectedProduct.loja_marca_nome} | ${selectedProduct.loja_bairro}`}</p>
+                <p className="text-4xl border flex justify-end font-bold p-1 text-green-900">{`R$${selectedProduct.oferta_preco}`}</p>
+                <p className="text-sm text-red-500 font-semibold flex justify-center p-1">{`Expira: ${selectedProduct.validade_final}`}</p>
+                <div className="flex flex-row items-center justify-around">
+                <p className="text-sm font-semibold p-1">{`${selectedProduct.loja_marca_nome} `}</p>
+                <img src={selectedProduct.loja_imagem} className="w-16 h-16" />
+                </div>
+                <p className="text-sm truncate text-gray-600 p-1">{`Distancia: ${parseFloat(selectedProduct.distancia).toFixed(2)} KM | Endereço: ${selectedProduct.loja_endereco}`}</p>
               </div>
             </div>
           </div>
