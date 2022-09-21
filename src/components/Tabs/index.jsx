@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ListaDeCompras from "../ListaDeCompras";
 import OfertasEncartes from "../OfertasEncartes";
 import OfertasProdutos from "../OfertasProdutos";
 
@@ -20,7 +21,7 @@ const Tabs = () => {
                     ? "text-white bg-red-600"
                     : "text-red-600 bg-white")
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(1);
                 }}
@@ -39,7 +40,7 @@ const Tabs = () => {
                     ? "text-white bg-red-600"
                     : "text-red-600 bg-white")
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(2);
                 }}
@@ -58,7 +59,7 @@ const Tabs = () => {
                     ? "text-white bg-red-600"
                     : "text-red-600 bg-white")
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(3);
                 }}
@@ -73,21 +74,25 @@ const Tabs = () => {
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
             <div className="px-4 py-0 flex-auto bg-red-600">
               <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="produtos">
+                <div
+                  className={openTab === 1 ? "block" : "hidden"}
+                  id="produtos"
+                >
                   <div className="m-2 border-4 border-dashed border-red-200 rounded-lg h-auto ">
                     <OfertasProdutos />
                   </div>
-                  
                 </div>
-                <div className={openTab === 2 ? "block" : "hidden"} id="encartes">
+                <div
+                  className={openTab === 2 ? "block" : "hidden"}
+                  id="encartes"
+                >
                   <div className="m-2 border-4 border-dashed border-red-200 rounded-lg h-auto ">
                     <OfertasEncartes />
                   </div>
-                  
                 </div>
                 <div className={openTab === 3 ? "block" : "hidden"} id="lista">
                   <div className="m-2 border-4 border-dashed border-red-200 rounded-lg h-auto ">
-                    <p>//Lista de Compras</p>
+                    <ListaDeCompras />
                   </div>
                 </div>
               </div>

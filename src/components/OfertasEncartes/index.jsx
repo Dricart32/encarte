@@ -10,16 +10,20 @@ export default function OfertasEncartes() {
   const [lat, setLat] = useState("")
   const [lng, setLng] = useState("")    
   const [searchProd, setSearchProd] = useState("")  
-  
+ 
+  const config = {
+    headers: { Authorization: `${token}` }
+};
   useEffect(() => {
       navigator.geolocation.getCurrentPosition( (position) => {
       setLat(position.coords.latitude);
       setLng(position.coords.longitude);
     });
 
-    axios.get(`${API_endpoint}&lat=${lat}&lng=${lng}`)
+    axios.get(`{${API_endpoint}&lat=${lat}&lng=${lng}}`, config)
     .then((response) => {
-       setOferta(response.data.data)
+       setOferta(response.data)
+       console.log(response)
     })
     .catch(function (error) {
       console.log(error);

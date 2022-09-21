@@ -27,7 +27,7 @@ export default function CardProduto({ oferta }) {
           </div>
           <div className="flex-1 min-w-0">
             <a className="focus:outline-none">
-              <p onClick={() => setSelectedProduct(produto)} className="text-sm font-medium  hover:text-white">
+              <p onClick={() => setSelectedProduct(produto)} className="text-sm font-medium cursor-pointer hover:text-white">
                 {produto.oferta_produto}
               </p>
               <p className="text-sm font-bold text-green-900">{`R$${produto.oferta_preco}`}</p>
