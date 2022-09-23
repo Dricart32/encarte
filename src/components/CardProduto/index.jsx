@@ -18,7 +18,6 @@ export default function CardProduto({ oferta }) {
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {oferta.map((produto) => (
         <div
-          
           key={produto.oferta_id}
           className="relative rounded-lg border border-gray-300 bg-white hover:bg-red-900 py-5 mx-1 px-6 shadow-sm flex items-center space-x-3 hover:border-2"
         >
@@ -27,7 +26,10 @@ export default function CardProduto({ oferta }) {
           </div>
           <div className="flex-1 min-w-0">
             <a className="focus:outline-none">
-              <p onClick={() => setSelectedProduct(produto)} className="text-sm font-medium cursor-pointer hover:text-white">
+              <p
+                onClick={() => setSelectedProduct(produto)}
+                className="text-sm font-medium cursor-pointer hover:text-white"
+              >
                 {produto.oferta_produto}
               </p>
               <p className="text-sm font-bold text-green-900">{`R$${produto.oferta_preco}`}</p>

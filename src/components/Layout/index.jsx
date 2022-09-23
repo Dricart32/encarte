@@ -1,15 +1,14 @@
 import Head from "next/head";
 import NavBar from "../NavBar";
 
-
-export default function Layout({children}){
-  return(
+export default function Layout({ children }) {
+  return (
     <>
       <Head>
         <link rel="shortcut icon" href="favicon.ico" />
         <title>Poupatize</title>
       </Head>
-      <div className='bg-red-100'>
+      <div className="bg-red-100">
         <div className="min-h-full">
           <NavBar />
           <main className="-mt-32">
@@ -22,5 +21,5 @@ export default function Layout({children}){
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -1,31 +1,60 @@
-/* possiveis retornos da api */
+//data {validade_inicial, validade_final, status, paginas[{ thumb_img_url, pagina, image_url, id, compact_image_url}] nome, id}
 
-import Image from "next/image";
+import { useState } from "react";
+import Encarte from "../Encarte";
 
-        //Validade inicial, validade final, oferta validade final, oferta produto marca, oferta produto, oferta preço, oferta imagem, oferta id, loja nome, loja marca nome, loja marca id, loja imagem, loja id, loja estado, loja endereço, loja cidade, loja bairro, location{lat lng},encarte validade inicial, encarte validade final, encarte pagina id, encarte nome, encarte id, distancia
-    
+export default function CardEncarte({ encarte }) {
+  const [selectedEncarte, setSelectedEncarte] = useState(null);
+
+  if (selectedEncarte != null)
+    return (
+      <Encarte
+        selectedEncarte={selectedEncarte}
+        setSelectedEncarte={setSelectedEncarte}
+      />
+    );
   
-        export default function CardProduto({oferta}) {
-            return (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {oferta.map((produto) => (
-                  <div
-                    key={produto.encarte_pagina_id}
-                    className="relative rounded-lg border border-gray-300 bg-white mx-1 px-5 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500"
-                  >
-                    <div className="flex-shrink-0">
-                      <img className="h-20 w-20" src={produto.oferta_imagem} alt="" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <a href="#" className="focus:outline-none">
-                        <span className="absolute inset-0" aria-hidden="true" />
-                        <p className="text-sm font-medium text-gray-900">{produto.encarte_nome}</p>
-                        <p className="text-sm font-bold text-green-900">{`R$${produto.encarte_validade_final}`}</p>
-                        <p className="text-sm text-gray-500 truncate">{`${produto.loja_marca_nome} | ${produto.loja_bairro}`}</p>
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )
-          }
+  return (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+      {encarte.map((e) => (
+        <div>
+          <div
+            key={e.paginas.id}
+            className=" hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500 h-hover focus-within:bg-red-900
+            relative rounded-lg border border-gray-300 bg-white hover:bg-red-900 py-5 mx-1 px-6 shadow-sm flex items-center space-x-3 hover:border-2"
+          >
+            <div className="flex justify-start">
+              <img
+                className="h-30 w-20 m-2"
+                src={e.paginas.at(-1).image_url}
+                alt=""
+              />
+              <img
+                className="h-30 w-20 m-2"
+                src={e.paginas[0].image_url}
+                alt=""
+              />
+            </div>
+            <br />
+            <div className="flex-1 min-w-0 h-40">
+              <a href="#" className="focus:outline-none">
+                <p
+                  onClick={() => setSelectedEncarte(e)}
+                  className="text-sm font-medium cursor-pointer hover:text-white"
+                >
+                  {e.nome}
+                </p>
+                <p className="text-sm truncate">
+                  Válido até:
+                  </p>
+                <p className="text-sm text-red-500 truncate">
+                  {e.validade_final}
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

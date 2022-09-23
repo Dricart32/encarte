@@ -6,3 +6,5 @@ const ListaDeCompras = () => {
   );
 };
 export default ListaDeCompras;
+
+//context e reducer com produto selecionado

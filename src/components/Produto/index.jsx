@@ -1,4 +1,4 @@
-export default function selectedProduct({
+export default function Produto({
   selectedProduct,
   setSelectedProduct,
 }) {

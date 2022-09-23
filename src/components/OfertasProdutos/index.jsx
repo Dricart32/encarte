@@ -10,7 +10,7 @@ export default function OfertasProdutos() {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [searchProd, setSearchProd] = useState("");
-  const [maxProd, setMaxProd] = useState(15); 
+  const [maxProd, setMaxProd] = useState(15);
 
   const handleMoreCards = () => {
     setMaxProd(maxProd + 6);
