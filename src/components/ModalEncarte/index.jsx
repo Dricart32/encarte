@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ModalEncarte({ pagina, setEncarteAberto }) {
   return (
     <>
@@ -7,8 +9,9 @@ export default function ModalEncarte({ pagina, setEncarteAberto }) {
         <div className="absolute mx-auto max-w-3xl">
           <div className="border-0 rounded-lg shadow-xl relative flex flex-row w-auto bg-red-500 outline-none focus:outline-none">
             <div className="relative p-1 m-2 flex-auto">
-              <img
-                
+              <Image
+                width={auto}
+                height={auto}                
                 className="h-auto w-auto"
                 src={pagina.image_url}
                 alt=""

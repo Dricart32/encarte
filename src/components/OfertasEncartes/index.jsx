@@ -10,21 +10,21 @@ export default function OfertasEncartes() {
   const [lng, setLng] = useState("");
   const [searchEncarte, setsearchEncarte] = useState("");
 
-  var config = {
-    method: "get",
-    url: `https://api.poupatize.com.br/api/v1/encartes_publicados?lat=${lat}&lng=${lng}`,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization:
-        "Bearer SFMyNTY.g3QAAAACZAAEZGF0YWFYZAAGc2lnbmVkbgYA2epkkHIB.5c1aAf8Xfsr-P_MTYZrzXFVbDSATYbk02cUk4cjljs0",
-    },
-  };
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLat(position.coords.latitude);
       setLng(position.coords.longitude);
     });
 
+    var config = {
+      method: "get",
+      url: `https://api.poupatize.com.br/api/v1/encartes_publicados?lat=${lat}&lng=${lng}`,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer SFMyNTY.g3QAAAACZAAEZGF0YWFYZAAGc2lnbmVkbgYA2epkkHIB.5c1aAf8Xfsr-P_MTYZrzXFVbDSATYbk02cUk4cjljs0",
+      },
+    };
     axios(config)
       .then(function (response) {
         setEncarte(response.data.data);
@@ -76,7 +76,7 @@ export default function OfertasEncartes() {
           </div>
         </div>
       </div>
-      
+
       <div>
         <CardEncarte encarte={encarte} />
       </div>

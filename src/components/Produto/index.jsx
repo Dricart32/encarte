@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Produto({
   selectedProduct,
   setSelectedProduct,
@@ -16,8 +18,10 @@ export default function Produto({
           </div>
           <div className="flex flex-col items-center bg-red-500 rounded-lg border-2 border-black border-dotted md:flex-row sm:min-w-0 py-4 px-0 my-3 mx-2">
             <div className="mx-4">
-              <img
-                className="h-60 w-60 sm:min-w-0 border p-1 bg-white border-black rounded-3xl shadow-lg"
+              <Image
+              width={60}
+              height={60}
+                className="sm:min-w-0 border p-1 bg-white border-black rounded-3xl shadow-lg"
                 src={selectedProduct.oferta_imagem}
                 alt=""
               />
@@ -32,9 +36,11 @@ export default function Produto({
 
                 <div className="flex flex-row items-center justify-around">
                   <p className="text-sm font-semibold p-1">{`${selectedProduct.loja_marca_nome} `}</p>
-                  <img
+                  <Image
                     src={selectedProduct.loja_imagem}
-                    className="w-16 h-16"
+                    alt=""
+                    width={16}
+                    height={16}
                   />
                 </div>
                 <p className="text-sm truncate text-gray-600 p-1">{`Distancia: ${parseFloat(

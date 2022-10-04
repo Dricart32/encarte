@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -31,7 +32,7 @@ export default function NavBar() {
                 <div className="flex items-center justify-between h-16 px-4 sm:px-0">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img className="h-8 w-8" src="/logo.png" alt="Workflow" />
+                      <Image height={8} width={8} src="/logo.png" alt="Workflow" />
                     </div>
                     <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-2">
                       <h1 className="text-3xl font-bold text-white">
@@ -41,10 +42,9 @@ export default function NavBar() {
 
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <Link href={item.href}>
+                        {navigation.map((item, index) => (
+                          <Link href={item.href} key={index}>
                             <a
-                              key={item.nome}
                               name={item.name}
                               className={[
                                 item.current

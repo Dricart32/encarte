@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 import ModalEncarte from "../ModalEncarte";
 
@@ -31,9 +32,9 @@ export default function Encarte({ selectedEncarte, setSelectedEncarte }) {
                   </div>
                 ) : (
                   <div className="flex flex-col border border-black rounded-lg bg-white m-1">
-                    <img
+                    <Image width={44} height={80}
                       onClick={() => setEncarteAberto(p)}
-                      className="h-80 w-44 hover:opacity-80 p-1 "
+                      className="hover:opacity-80 p-1 "
                       src={p.image_url}
                       alt=""
                     />
