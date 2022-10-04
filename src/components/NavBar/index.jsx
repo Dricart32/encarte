@@ -32,7 +32,7 @@ export default function NavBar() {
                 <div className="flex items-center justify-between h-16 px-4 sm:px-0">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <Image height={8} width={8} src="/logo.png" alt="Workflow" />
+                      <Image height={32} width={32} src="/logo.png" alt="Workflow" />
                     </div>
                     <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-2">
                       <h1 className="text-3xl font-bold text-white">

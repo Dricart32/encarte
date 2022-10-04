@@ -26,15 +26,15 @@ export default function CardEncarte({ encarte }) {
           >
             <div className="flex justify-start">
               <Image
-                width={20}
-                height={30}
+                width={80}
+                height={128}
                 className="m-2"
                 src={e.paginas.at(-1).image_url}
                 alt=""
               />
               <Image
-                width={20}
-                height={30}
+                width={80}
+                height={128}
                 className="m-2"
                 src={e.paginas[0].image_url}
                 alt=""

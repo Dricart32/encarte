@@ -19,8 +19,8 @@ export default function Produto({
           <div className="flex flex-col items-center bg-red-500 rounded-lg border-2 border-black border-dotted md:flex-row sm:min-w-0 py-4 px-0 my-3 mx-2">
             <div className="mx-4">
               <Image
-              width={60}
-              height={60}
+              width={240}
+              height={240}
                 className="sm:min-w-0 border p-1 bg-white border-black rounded-3xl shadow-lg"
                 src={selectedProduct.oferta_imagem}
                 alt=""
@@ -39,8 +39,8 @@ export default function Produto({
                   <Image
                     src={selectedProduct.loja_imagem}
                     alt=""
-                    width={16}
-                    height={16}
+                    width={64}
+                    height={64}
                   />
                 </div>
                 <p className="text-sm truncate text-gray-600 p-1">{`Distancia: ${parseFloat(

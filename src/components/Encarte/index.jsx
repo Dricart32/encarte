@@ -32,7 +32,7 @@ export default function Encarte({ selectedEncarte, setSelectedEncarte }) {
                   </div>
                 ) : (
                   <div className="flex flex-col border border-black rounded-lg bg-white m-1">
-                    <Image width={44} height={80}
+                    <Image width={180} height={240}
                       onClick={() => setEncarteAberto(p)}
                       className="hover:opacity-80 p-1 "
                       src={p.image_url}

@@ -23,7 +23,7 @@ export default function CardProduto( {oferta}) {
           className="relative rounded-lg border border-gray-300 bg-white hover:bg-red-900 py-5 mx-1 px-6 shadow-sm flex items-center space-x-3 hover:border-2"
         >
           <div className="flex-shrink-0">
-            <Image width={20} height={20} src={produto.oferta_imagem} alt="" />
+            <Image width={90} height={90} src={produto.oferta_imagem} alt="" />
           </div>
           <div className="flex-1 min-w-0">
             <a className="focus:outline-none">
