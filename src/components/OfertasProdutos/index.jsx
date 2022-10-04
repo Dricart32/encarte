@@ -59,6 +59,7 @@ export default function OfertasProdutos() {
       <div className="px-2">
         <CardProduto oferta={oferta} />
       </div>
+
       <div className="flex items-center justify-center m-2">
         <button
           type="button"

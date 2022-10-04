@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "../Modal";
+import ModalEncarte from "../ModalEncarte";
 
 export default function Encarte({ selectedEncarte, setSelectedEncarte }) {
   //data {validade_inicial, validade_final, status, paginas[{ thumb_img_url, pagina, image_url, id, compact_image_url}] nome, id}
@@ -24,7 +24,7 @@ export default function Encarte({ selectedEncarte, setSelectedEncarte }) {
               {selectedEncarte.paginas.map((p) =>
                 encarteAberto != null ? (
                   <div>
-                    <Modal
+                    <ModalEncarte
                       pagina={encarteAberto}
                       setEncarteAberto={setEncarteAberto}
                     />
@@ -37,12 +37,6 @@ export default function Encarte({ selectedEncarte, setSelectedEncarte }) {
                       src={p.image_url}
                       alt=""
                     />
-                    <button
-                      type="button"
-                      className="inline-flex justify-center m-1 rounded-md border border-gray-500 bg-white px-4 py-1 text-base font-medium text-red-700 shadow-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                    >
-                      <a href={p.image_url}>Baixar Encarte</a>
-                    </button>
                   </div>
                 )
               )}

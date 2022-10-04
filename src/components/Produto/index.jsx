@@ -2,7 +2,6 @@ export default function Produto({
   selectedProduct,
   setSelectedProduct,
 }) {
-  console.log(selectedProduct);
   return (
     <div clasName="flex items-center justify-center">
       <div className="bg-logo bg-no-repeat bg-center relative py-5 mx-1 px-6 shadow-sm space-x-3 items-center justify-center">

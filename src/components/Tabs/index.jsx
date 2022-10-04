@@ -51,7 +51,7 @@ const Tabs = () => {
                 Pesquisar Encartes
               </a>
             </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            {/* <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
               <a
                 className={
                   "text-xs font-bold uppercase px-5 py-3 border-t shadow-lg rounded-t-3xl block leading-normal " +
@@ -69,7 +69,7 @@ const Tabs = () => {
               >
                 Lista de Compras
               </a>
-            </li>
+            </li> */}
           </ul>
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
             <div className="px-4 py-0 flex-auto bg-red-600">
@@ -90,11 +90,11 @@ const Tabs = () => {
                     <OfertasEncartes />
                   </div>
                 </div>
-                <div className={openTab === 3 ? "block" : "hidden"} id="lista">
+                {/* <div className={openTab === 3 ? "block" : "hidden"} id="lista">
                   <div className="m-2 border-4 border-dashed border-red-200 rounded-lg h-auto ">
                     <ListaDeCompras />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

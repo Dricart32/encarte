@@ -3,7 +3,7 @@ import Produto from "../Produto";
 
 //Validade inicial, validade final, oferta validade final, oferta produto marca, oferta produto, oferta preço, oferta imagem, oferta id, loja nome, loja marca nome, loja marca id, loja imagem, loja id, loja estado, loja endereço, loja cidade, loja bairro, location{lat lng},encarte validade inicial, encarte validade final, encarte pagina id, encarte nome, encarte id, distancia
 
-export default function CardProduto({ oferta }) {
+export default function CardProduto( {oferta}) {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   if (selectedProduct != null)
@@ -38,6 +38,7 @@ export default function CardProduto({ oferta }) {
           </div>
         </div>
       ))}
+      
     </div>
   );
 }
