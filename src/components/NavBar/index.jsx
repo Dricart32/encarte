@@ -1,17 +1,17 @@
-import { Disclosure } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { Disclosure } from '@headlessui/react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function NavBar() {
   const navigation = [
-    { name: "Supermercados", href: "/", current: true },
-    { name: "Farmácias", href: "/farmacias", current: false },
-    { name: "Construção", href: "/construcao", current: false },
-    { name: "Restaurantes", href: "/restaurantes", current: false },
-    { name: "Petshops", href: "/petshops", current: false },
-    { name: "Diversos", href: "/diversos", current: false },
+    { name: 'Supermercados', href: '/', current: true },
+    // { name: 'Farmácias', href: '/farmacias', current: false },
+    // { name: 'Construção', href: '/construcao', current: false },
+    // { name: 'Restaurantes', href: '/restaurantes', current: false },
+    // { name: 'Petshops', href: '/petshops', current: false },
+    // { name: 'Diversos', href: '/diversos', current: false },
   ];
   const heading = navigation.find((nav) => nav.current === true);
 
@@ -20,12 +20,7 @@ export default function NavBar() {
   return (
     <div className="bg-red-800 pb-32">
       <nav>
-        <Disclosure
-          open={isOpen}
-          onChange={() => setOpen(!isOpen)}
-          as="nav"
-          className="bg-red-800"
-        >
+        <Disclosure open={isOpen} onChange={() => setOpen(!isOpen)} as="nav" className="bg-red-800">
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
               <div className="border-b border-red-700">
@@ -35,23 +30,21 @@ export default function NavBar() {
                       <Image height={32} width={32} src="/logo.png" alt="Workflow" />
                     </div>
                     <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-2">
-                      <h1 className="text-3xl font-bold text-white">
-                        Poupatize
-                      </h1>
+                      <h1 className="text-3xl font-bold text-white">Poupatize</h1>
                     </div>
 
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item, index) => (
-                          <Link href={item.href} key={index}>
+                        {navigation.map((item) => (
+                          <Link href={item.href} key={item.name}>
                             <a
                               name={item.name}
                               className={[
                                 item.current
-                                  ? "text-white bg-red-900 px-3 py-2 rounded-md text-sm font-medium"
-                                  : "text-red-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium",
+                                  ? 'text-white bg-red-900 px-3 py-2 rounded-md text-sm font-medium'
+                                  : 'text-red-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
                               ]}
-                              aria-current={item.current ? "page" : undefined}
+                              aria-current={item.current ? 'page' : undefined}
                               //vai receber o onClick que muda a page
                             >
                               {item.name}
@@ -69,10 +62,7 @@ export default function NavBar() {
                       {isOpen ? (
                         <XIcon className="block h-6 w-6" aria-hidden="true" />
                       ) : (
-                        <MenuIcon
-                          className="block h-6 w-6"
-                          aria-hidden="true"
-                        />
+                        <MenuIcon className="block h-6 w-6" aria-hidden="true" />
                       )}
                     </Disclosure.Button>
                   </div>
@@ -89,10 +79,10 @@ export default function NavBar() {
                     href={item.href}
                     className={
                       item.current
-                        ? "text-white bg-red-900 block px-3 py-2 rounded-md text-base font-medium"
-                        : "text-red-300 hover:bg-red-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        ? 'text-white bg-red-900 block px-3 py-2 rounded-md text-base font-medium'
+                        : 'text-red-300 hover:bg-red-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
                     }
-                    aria-current={item.current ? "page" : undefined}
+                    aria-current={item.current ? 'page' : undefined}
                     //vai receber o onClick que muda a page
                   >
                     {item.name}

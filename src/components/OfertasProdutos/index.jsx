@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import CardProduto from "../CardProduto";
-import { SearchIcon } from "@heroicons/react/solid";
+import { SearchIcon } from '@heroicons/react/solid';
+import { useEffect, useState } from 'react';
+import CardProduto from '../CardProduto';
 
-var axios = require("axios");
+var axios = require('axios');
 const API_endpoint = `http://api.poupatize.com.br/api/v1/ofertas/pesquisar?`;
 
 export default function OfertasProdutos() {
-  const [oferta, setOferta] = useState([]);
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
-  const [searchProd, setSearchProd] = useState("");
-  const [maxProd, setMaxProd] = useState(15);
+  const [ofertas, setOfertas] = useState([]);
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
+  const [searchProd, setSearchProd] = useState('');
+  const [maxProd, setMaxProd] = useState(30);
 
-  const handleMoreCards = () => {
-    setMaxProd(maxProd + 6);
-  };
+  // const handleMoreCards = () => {
+  //   setMaxProd(maxProd + 6);
+  // };
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLat(position.coords.latitude);
@@ -22,11 +22,9 @@ export default function OfertasProdutos() {
     });
 
     axios
-      .get(
-        `${API_endpoint}produto=${searchProd}&lat=${lat}&lng=${lng}&distance=1000&max=${maxProd}`
-      )
+      .get(`${API_endpoint}produto=${searchProd}&lat=${lat}&lng=${lng}&distance=1000&max=${maxProd}`)
       .then((response) => {
-        setOferta(response.data.data);
+        setOfertas(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -57,10 +55,10 @@ export default function OfertasProdutos() {
         </div>
       </div>
       <div className="px-2">
-        <CardProduto oferta={oferta} />
+        <CardProduto ofertas={ofertas} />
       </div>
 
-      <div className="flex items-center justify-center m-2">
+      {/* <div className="flex items-center justify-center m-2">
         <button
           type="button"
           onClick={handleMoreCards}
@@ -68,7 +66,7 @@ export default function OfertasProdutos() {
         >
           Carregar mais ofertas
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

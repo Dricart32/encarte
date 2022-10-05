@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: poupatize
+  name: poupatize-web
+  labels:
+    app: poupatize-web
+spec:
+  selector:
+    matchLabels:
+      app: poupatize-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: poupatize-web
+    spec:
+      containers:
+        - name: poupatize-web
+          image: registry.digitalocean.com/cr-poupatize/poupatize_web:0.1
+          imagePullPolicy: Always
+          env:
+            - name: TZ
+              value: America/Bahia
+            - name: REACT_APP_API_URL
+              value:
+            - name: PORT
+              value: "3000"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: poupatize
+  name: poupatize-web-svc
+spec:
+  selector:
+    app: poupatize-web
+  ports:
+    - protocol: TCP
+      port: 3000

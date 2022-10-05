@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ofertas-poupatize-routes
+  namespace: poupatize
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: ofertas.poupatize.com.br
+      http:
+        paths:
+        - pathType: ImplementationSpecific
+          path: "/"
+          backend:
+            service:
+              name: poupatize-web-svc
+              port:
+                number: 3000
+  tls:
+    - hosts:
+      - ofertas.poupatize.com.br
+      secretName: letsencrypt-ofertas-poupatize-tls
