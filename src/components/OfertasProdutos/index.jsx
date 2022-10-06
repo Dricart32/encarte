@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import CardProduto from '../CardProduto';
 
 var axios = require('axios');
-const API_endpoint = `http://api.poupatize.com.br/api/v1/ofertas/pesquisar?`;
+const API_endpoint = `https://api.poupatize.com.br/api/v1/ofertas/pesquisar?`;
 
 export default function OfertasProdutos() {
   const [ofertas, setOfertas] = useState([]);
