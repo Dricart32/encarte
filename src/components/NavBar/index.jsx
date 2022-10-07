@@ -23,7 +23,7 @@ export default function NavBar() {
         <Disclosure open={isOpen} onChange={() => setOpen(!isOpen)} as="nav" className="bg-red-800">
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-              <div className="border-b border-red-700">
+              <div className="border-b border-red-100">
                 <div className="flex items-center justify-between h-16 px-4 sm:px-0">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">

@@ -2,9 +2,9 @@
 
 cd ..
 
-VERSAO=0.1
+VERSAO=0.2
 
-doctl registry login
+# doctl registry login
 
 docker build -t registry.digitalocean.com/cr-poupatize/poupatize_web:$VERSAO .
 # docker build  --no-cache  -t registry.digitalocean.com/cr-poupatize/poupatize_web:$VERSAO .

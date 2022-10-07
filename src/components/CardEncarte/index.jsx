@@ -11,7 +11,7 @@ export default function CardEncarte({ encarte }) {
     return <Encarte selectedEncarte={selectedEncarte} setSelectedEncarte={setSelectedEncarte} />;
 
   return (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+    <div className="grid m-2 grid-cols-1 gap-3 sm:grid-cols-3">
       {encarte.map((e) => (
         <div key={e.paginas.id}>
           <div

@@ -11,7 +11,7 @@ export default function CardProduto({ ofertas }) {
     return <Produto selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct} />;
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 mb-5 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {ofertas.map((produto) => (
         <div
           key={produto.oferta_id}

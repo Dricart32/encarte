@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import CardEncarte from "../CardEncarte";
-import { SearchIcon } from "@heroicons/react/solid";
+import { SearchIcon } from '@heroicons/react/solid';
+import { useEffect, useState } from 'react';
+import CardEncarte from '../CardEncarte';
 
-var axios = require("axios");
+var axios = require('axios');
 
 export default function OfertasEncartes() {
   const [encarte, setEncarte] = useState([]);
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
-  const [searchEncarte, setsearchEncarte] = useState("");
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
+  const [searchEncarte, setsearchEncarte] = useState('');
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -17,12 +17,12 @@ export default function OfertasEncartes() {
     });
 
     var config = {
-      method: "get",
+      method: 'get',
       url: `https://api.poupatize.com.br/api/v1/encartes_publicados?lat=${lat}&lng=${lng}`,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization:
-          "Bearer SFMyNTY.g3QAAAACZAAEZGF0YWFYZAAGc2lnbmVkbgYA2epkkHIB.5c1aAf8Xfsr-P_MTYZrzXFVbDSATYbk02cUk4cjljs0",
+          'Bearer SFMyNTY.g3QAAAACZAAEZGF0YWFYZAAGc2lnbmVkbgYA2epkkHIB.5c1aAf8Xfsr-P_MTYZrzXFVbDSATYbk02cUk4cjljs0',
       },
     };
     axios(config)
@@ -55,12 +55,12 @@ export default function OfertasEncartes() {
 
   return (
     <div>
-      <div className="flex-1 px-2 m-2 flex justify-center lg:ml-6 lg:justify-start rounded-md">
-        <div className="w-full px-8">
+      <div className="flex-1 m-3 flex justify-center lg:justify-start rounded-md">
+        <div className="w-full">
           <label htmlFor="search" className="sr-only">
             Search
           </label>
-          <div className="relative text-gray-400 focus-within:text-gray-600">
+          {/* <div className="relative text-gray-400 focus-within:text-gray-600">
             <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
               <SearchIcon className="h-5 w-5" aria-hidden="true" />
             </div>
@@ -73,7 +73,7 @@ export default function OfertasEncartes() {
               value={searchEncarte}
               onChange={(e) => setsearchEncarte(e.target.value)}
             />
-          </div>
+          </div> */}
         </div>
       </div>
 

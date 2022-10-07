@@ -1,5 +1,6 @@
 import { SearchIcon } from '@heroicons/react/solid';
-import { useEffect, useState } from 'react';
+import { debounce } from 'lodash';
+import { useCallback, useEffect, useState } from 'react';
 import CardProduto from '../CardProduto';
 
 var axios = require('axios');
@@ -7,10 +8,22 @@ const API_endpoint = `https://api.poupatize.com.br/api/v1/ofertas/pesquisar?`;
 
 export default function OfertasProdutos() {
   const [ofertas, setOfertas] = useState([]);
+  const [carregando, setCarregando] = useState(true);
   const [lat, setLat] = useState('');
   const [lng, setLng] = useState('');
   const [searchProd, setSearchProd] = useState('');
+  const [executeSearchTxt, setExecuteSearchTxt] = useState('');
   const [maxProd, setMaxProd] = useState(30);
+
+  const executeSearch = useCallback(
+    debounce((txt) => setExecuteSearchTxt(txt), 1000),
+    [] // será criada apenas uma vez inicialmente
+  );
+
+  const keyPressOnSearch = (txt) => {
+    setSearchProd(txt);
+    executeSearch(txt);
+  };
 
   // const handleMoreCards = () => {
   //   setMaxProd(maxProd + 6);
@@ -21,20 +34,22 @@ export default function OfertasProdutos() {
       setLng(position.coords.longitude);
     });
 
+    setCarregando(true);
     axios
-      .get(`${API_endpoint}produto=${searchProd}&lat=${lat}&lng=${lng}&distance=1000&max=${maxProd}`)
+      .get(`${API_endpoint}produto=${executeSearchTxt}&lat=${lat}&lng=${lng}&distance=1000&max=${maxProd}`)
       .then((response) => {
         setOfertas(response.data.data);
+        setCarregando(false);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, [lat, lng, searchProd, maxProd]);
+  }, [lat, lng, executeSearchTxt, maxProd]);
 
   return (
     <div>
-      <div className="flex-1 px-2 m-2 mb-3 flex justify-center lg:ml-6 lg:justify-start rounded-md ">
-        <div className="w-full px-8">
+      <div className="flex-1 m-3 mb-3 flex justify-center lg:justify-start rounded-md ">
+        <div className="w-full">
           <label htmlFor="search" className="sr-only">
             Search
           </label>
@@ -49,13 +64,14 @@ export default function OfertasProdutos() {
               type="search"
               name="search"
               value={searchProd}
-              onChange={(e) => setSearchProd(e.target.value)}
+              onChange={(e) => keyPressOnSearch(e.target.value)}
             />
           </div>
         </div>
       </div>
       <div className="px-2">
-        <CardProduto ofertas={ofertas} />
+        {carregando && <p className="text-white mb-5">Aguarde, carregando...</p>}
+        {!carregando && <CardProduto ofertas={ofertas} />}
       </div>
 
       {/* <div className="flex items-center justify-center m-2">
